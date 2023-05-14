@@ -1,0 +1,22 @@
+[
+  {
+    "title": "COMPANY",
+    "description": "An example of how cities and sites live 24/7",
+    "url": "https://dev-m-tanasov.github.io/company/"
+  },
+  {
+    "title": "Ski touring blog",
+    "description": " Blog about winter skiing",
+    "url": "https://dev-m-tanasov.github.io/ski/"
+  },
+  {
+    "title": "Beach and running time",
+    "description": "For sun lovers and runing sports",
+    "url": "https://dev-m-tanasov.github.io/athleticrunstyle/"
+  },
+  {
+    "title": "Forest and Environment Blog",
+    "description": "Protect the environment",
+    "url": "https://dev-m-tanasov.github.io/forest/"
+  }
+]
