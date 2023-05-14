@@ -1,0 +1,45 @@
+<section class="dark" id="home">
+    <div id="container">
+                    <p class="click-me">CLICK ME</p>
+                </div>
+    @if (hero is not null)
+    {
+        <img class="background" src="@(hero.Src)" alt="@(hero.Alt)" />
+    }
+    <div style="position: absolute; top: 30%; left: 2rem;">
+    @if (property is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <h1 class="wow animate__fadeInUp" itemprop="name" itemtype="name" itemscope="Maksym Sergeyevich">@property.Name</h1>
+        <h2 class="wow animate__fadeInUp">@property.Title</h2>
+    }
+        <p>
+           <span class="word wisteria">responsible</span>
+           <span class="word belize">non-standard</span>
+           <span class="word pomegranate">creative</span>
+       </p>
+    </div>
+    <div style="position: absolute; bottom: 8rem; left: 50%;">
+  <a href="#about" target="_top"><img src="images/down-arrow.svg" style="height: 3rem; width: 3rem;" class="wow animate__fadeInUp" alt="scroll down" /></a>
+    </div>
+</section>
+
+@code {
+    [Parameter, EditorRequired]
+    public required HttpClient Http { get; set; }
+
+    [Parameter, EditorRequired]
+    public required HeroImageService HeroImageService { get; set; }
+
+    private SiteProperties? property;
+    private HeroImage? hero;
+
+    protected override async Task OnInitializedAsync()
+    {
+        property = await Http.GetFromJsonAsync<SiteProperties>("sample-data/siteproperties.json");
+        hero = await HeroImageService.GetHeroAsync(img => img.Name is "home");
+    }
+}
